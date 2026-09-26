@@ -1,0 +1,343 @@
+/* ==========================================
+   VARIABLES Y CONFIGURACIÓN GENERAL
+========================================== */
+:root {
+    --primary-color: #0d4a5c;      /* Azul oscuro principal (del texto del logo) */
+    --secondary-color: #178ca4;    /* Turquesa medio */
+    --accent-color: #2ec4b6;       /* Turquesa brillante / acento */
+    --light-bg: #f4f9fa;           /* Fondo muy suave y limpio */
+    --text-color: #333333;         /* Texto general oscuro */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ==========================================
+   BOTONES
+========================================== */
+.btn-primary, .btn-secondary, .btn-reserva-nav {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(23, 140, 164, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* ==========================================
+   NAVEGACIÓN (HEADER)
+========================================== */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--secondary-color);
+}
+
+.btn-reserva-nav {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 8px 18px;
+    font-size: 0.9rem;
+}
+
+.btn-reserva-nav:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* ==========================================
+   SECCIÓN HERO (PRINCIPAL)
+========================================== */
+.hero {
+    background: linear-gradient(135deg, rgba(13, 74, 92, 0.05) 0%, rgba(38, 196, 182, 0.1) 100%), var(--light-bg);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.slogan {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   SECCIÓN DE PRESENTACIÓN / TARJETAS
+========================================== */
+.about-preview {
+    padding: 70px 20px;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.about-preview h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    transition: var(--transition);
+    border-top: 4px solid var(--secondary-color);
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   SECCIÓN CTA (LLAMADA A LA ACCIÓN)
+========================================== */
+.cta-section {
+    padding: 50px 20px;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 50px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(13, 74, 92, 0.2);
+}
+
+.cta-box h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    opacity: 0.9;
+}
+
+.cta-box .btn-primary {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.cta-box .btn-primary:hover {
+    background-color: var(--light-bg);
+    color: var(--secondary-color);
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+========================================== */
+.footer {
+    background-color: #082d38;
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.footer-slogan {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVE (MÓVILES)
+========================================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .cta-box h2 {
+        font-size: 1.6rem;
+    }
+}

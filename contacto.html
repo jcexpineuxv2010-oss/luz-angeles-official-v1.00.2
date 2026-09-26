@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz Angeles | Consultorio Psicológico</title>
+    <!-- Enlaces directos a los archivos CSS en la raíz -->
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="reserva.css">
+    <!-- Fuente de Google Fonts para un diseño moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="perfil.jpg.png" alt="Logo Luz Angeles" class="logo-img">
+                <span class="logo-text">Luz Angeles</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html">Inicio</a>
+                <a href="sobre-mi.html">Sobre Mí</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto.html" class="active">Contacto</a>
+                <a href="reservar.html" class="btn-reserva-nav">Reserva de Citas</a>
+                <a href="login.html">Administración</a>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN DE CONTACTO -->
+    <section class="about-preview" style="padding: 70px 20px; background-color: var(--light-bg);">
+        <div class="container">
+            <div class="reserva-header">
+                <h2>Ponte en Contacto</h2>
+                <p class="subtitle">Estamos aquí para resolver tus dudas y acompañarte. Escríbenos o visítanos.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; text-align: left;">
+                
+                <!-- Tarjeta de Información -->
+                <div style="background-color: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-top: 5px solid var(--secondary-color);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.3rem;">Información de Contacto</h3>
+                    
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start;">
+                        <span style="font-size: 1.2rem; background: rgba(23, 140, 164, 0.1); padding: 10px; border-radius: 10px;">📞</span>
+                        <div>
+                            <strong style="display: block; color: var(--primary-color); font-size: 0.9rem;">Teléfono / WhatsApp</strong>
+                            <span style="color: #555; font-size: 0.95rem;">+51 918 750 919</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start;">
+                        <span style="font-size: 1.2rem; background: rgba(23, 140, 164, 0.1); padding: 10px; border-radius: 10px;">✉️</span>
+                        <div>
+                            <strong style="display: block; color: var(--primary-color); font-size: 0.9rem;">Correo Electrónico</strong>
+                            <span style="color: #555; font-size: 0.95rem;">consultorioluzangeles@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <span style="font-size: 1.2rem; background: rgba(23, 140, 164, 0.1); padding: 10px; border-radius: 10px;">⏰</span>
+                        <div>
+                            <strong style="display: block; color: var(--primary-color); font-size: 0.9rem;">Horarios de Atención</strong>
+                            <span style="color: #555; font-size: 0.95rem;">Lunes a Domingo: 09:00 PM - 10:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Formulario con Selección de Medio -->
+                <div style="background-color: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-top: 5px solid var(--primary-color);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.3rem;">Envíanos un mensaje</h3>
+                    
+                    <form id="formContacto">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="nombreContacto" style="display: block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 8px;">Tu Nombre</label>
+                            <input type="text" id="nombreContacto" placeholder="Nombre completo" class="form-control" required>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="correoContacto" style="display: block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 8px;">Tu Correo</label>
+                            <input type="email" id="correoContacto" placeholder="Correo electrónico" class="form-control" required>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="numeroContacto" style="display: block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 8px;">Tu número</label>
+                            <input type="text" id="numeroContacto" placeholder="Número de telefono / WhatsApp" class="form-control" required>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <label for="mensajeContacto" style="display: block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 8px;">Tu Mensaje</label>
+                            <textarea id="mensajeContacto" placeholder="¿En qué podemos ayudarte?" class="form-control" rows="4" required style="resize: none;"></textarea>
+                        </div>
+
+                        <!-- Botones de elección de medio -->
+                        <p style="font-size: 0.85rem; font-weight: 600; color: var(--primary-color); margin-bottom: 12px; text-align: center;">Elige por dónde deseas enviar tu solicitud:</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <button type="button" onclick="enviarPorWhatsApp()" style="background-color: #25d366; color: white; border: none; padding: 12px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.3s;">
+                                💬 WhatsApp
+                            </button>
+                            
+                            <button type="button" onclick="enviarPorCorreo(event)" style="background-color: var(--secondary-color); color: white; border: none; padding: 12px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.3s;">
+                                ✉️ Correo
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Script para procesar el envío según el botón elegido -->
+    <script>
+    function enviarPorWhatsApp() {
+        const nombre = document.getElementById('nombreContacto').value.trim();
+        const correo = document.getElementById('correoContacto').value.trim();
+        const numero = document.getElementById('numeroContacto').value.trim();
+        const mensaje = document.getElementById('mensajeContacto').value.trim();
+
+        if (!nombre || !correo || !numero || !mensaje) {
+            alert('Por favor, completa todos los campos antes de enviar.');
+            return;
+        }
+
+        const numeroWhatsApp = "51918750919"; 
+        const texto = `Hola, te escribo desde la web. Mi nombre es *${nombre}*.\nMi correo es: ${correo}\n\nMi número es: ${numero}\n\nMensaje:\n${mensaje}`;
+        
+        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+        window.open(url, '_blank');
+    }
+
+    function enviarPorCorreo(event) {
+        if (event) event.preventDefault(); // Evita comportamientos extraños del formulario
+
+        // CORREGIDO: Ahora lee los IDs correctos de esta sección de contacto
+        const nombre = document.getElementById('nombreContacto').value.trim();
+        const correo = document.getElementById('correoContacto').value.trim();
+        const numero = document.getElementById('numeroContacto').value.trim();
+        const mensaje = document.getElementById('mensajeContacto').value.trim();
+
+        if (!nombre || !correo || !numero || !mensaje) {
+            alert('Por favor, completa todos los campos antes de enviar.');
+            return;
+        }
+
+        const destinatario = "consultorioluzangeles@gmail.com"; 
+        const asunto = `Nuevo mensaje de contacto de ${nombre}`;
+        const cuerpo = `Hola, te escribo desde la web de Luz Angeles.\n\nNombre: ${nombre}\nCorreo: ${correo}\nTeléfono: ${numero}\n\nMensaje:\n${mensaje}`;
+
+        const urlGmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${destinatario}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+        
+        window.open(urlGmail, '_blank');
+    }
+    </script>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Luz Angeles - Consultorio Psicológico. Todos los derechos reservados.</p>
+            <p class="footer-slogan">Escuchar • Acompañar • Transformar</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

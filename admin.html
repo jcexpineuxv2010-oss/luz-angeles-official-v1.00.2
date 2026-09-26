@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Luz Angeles</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="reserva.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--light-bg);">
+
+    <!-- HEADER DE ADMINISTRACIÓN -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="perfil.jpg.png" alt="Logo Luz Angeles" class="logo-img">
+                <span class="logo-text">Panel Admin</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" target="_blank">Ver Sitio Web</a>
+                <a href="#" onclick="cerrarSesion()" style="color: #d9534f; font-weight: 600;">Cerrar Sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DEL PANEL -->
+    <section class="container" style="padding: 50px 20px; max-width: 1200px;">
+        <div class="reserva-header" style="text-align: left; margin-bottom: 30px;">
+            <h2>Gestión de Citas Médicas</h2>
+            <p class="subtitle">Aquí puedes visualizar las solicitudes de los pacientes, confirmar citas, agregarlas a Google Calendar o enviar notificaciones.</p>
+        </div>
+
+        <!-- TABLA DE CITAS -->
+        <div style="background: var(--white); padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #eee; color: var(--primary-color);">
+                        <th style="padding: 12px;">Paciente</th>
+                        <th style="padding: 12px;">Terapia</th>
+                        <th style="padding: 12px;">Fecha y Hora</th>
+                        <th style="padding: 12px;">Contacto / Teléfono</th>
+                        <th style="padding: 12px;">Estado</th>
+                        <th style="padding: 12px; text-align: center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCitasBody">
+                    <!-- Las citas se inyectarán dinámicamente aquí mediante JavaScript -->
+                </tbody>
+            </table>
+            
+            <div id="sinCitas" style="text-align: center; padding: 40px; color: #777; display: none;">
+                No hay citas registradas por el momento. ¡Prueba haciendo una reserva desde la web!
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT DE ADMINISTRACIÓN -->
+    <script src="admin.js"></script>
+</body>
+</html>

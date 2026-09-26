@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Admin | Luz Angeles</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="reserva.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: var(--light-bg); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+
+    <div style="background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); width: 100%; max-width: 400px; border-top: 5px solid var(--primary-color);">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <img src="perfil.jpg.png" alt="Logo" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+            <h2 style="color: var(--primary-color); font-size: 1.4rem;">Panel del Consultorio</h2>
+            <p style="color: #666; font-size: 0.85rem;">Ingresa tus credenciales para acceder</p>
+        </div>
+
+        <form id="formLogin">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary-color); margin-bottom: 6px;">Usuario / DNI</label>
+                <input type="text" id="usuario" placeholder="Ej. 12345678" class="form-control" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--primary-color); margin-bottom: 6px;">Contraseña</label>
+                <input type="password" id="password" placeholder="••••••••" class="form-control" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+            </div>
+
+            <button type="submit" style="width: 100%; background: var(--primary-color); color: white; border: none; padding: 12px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; transition: background 0.3s;">
+                Iniciar Sesión
+            </button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" style="color: #666; font-size: 0.8rem; text-decoration: none;">← Volver al sitio web principal</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('formLogin').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('usuario').value.trim();
+            const pass = document.getElementById('password').value.trim();
+
+            if (user === "12345678" && pass === "12345678") {
+                // Guardamos una bandera de sesión en el navegador
+                localStorage.setItem("sesionActiva", "true");
+                // Redirigimos al panel de administración
+                window.location.href = "admin.html";
+            } else {
+                alert("Usuario o contraseña incorrectos. Usa 12345678 para ambas casillas.");
+            }
+        });
+    </script>
+</body>
+</html>
