@@ -11,16 +11,15 @@ function cargarCitas() {
     const tablaBody = document.getElementById("tablaCitasBody");
     const sinCitasDiv = document.getElementById("sinCitas");
     
-    // Obtenemos las citas guardadas en el navegador (simulando base de datos local)
     let citas = JSON.parse(localStorage.getItem("citasLuzAngeles")) || [];
 
     tablaBody.innerHTML = "";
 
     if (citas.length === 0) {
-        sinCitasDiv.style.display = "block";
+        if (sinCitasDiv) sinCitasDiv.style.display = "block";
         return;
     } else {
-        sinCitasDiv.style.display = "none";
+        if (sinCitasDiv) sinCitasDiv.style.display = "none";
     }
 
     citas.forEach((cita, index) => {
@@ -30,15 +29,33 @@ function cargarCitas() {
         let estadoColor = cita.estado === "Confirmada" ? "#28a745" : "#f0ad4e";
 
         fila.innerHTML = `
-            <td style="padding: 15px; font-weight: 600; color: var(--primary-color);">${cita.nombre}</td>
-            <td style="padding: 15px;">${cita.terapia}</td>
-            <td style="padding: 15px;">${cita.fecha} <br><small style="color: #666;">${cita.hora}</small></td>
-            <td style="padding: 15px;">${cita.telefono}<br><small>${cita.correo}</small></td>
-            <td style="padding: 15px;"><span style="background: ${estadoColor}; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">${cita.estado || 'Pendiente'}</span></td>
-            <td style="padding: 15px; text-align: center; display: flex; gap: 8px; justify-content: center;">
-                <button onclick="confirmarYAgendar(${index})" style="background: #28a745; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;" title="Confirmar y Google Calendar"><i class="fa-solid fa-check"></i></button>
-                <button onclick="enviarWhatsAppRecordatorio(${index})" style="background: #25d366; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;" title="Enviar WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
-                <button onclick="eliminarCita(${index})" style="background: #d9534f; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;" title="Eliminar cita"><i class="fa-solid fa-trash-can"></i></button>
+            <td style="padding: 15px; font-weight: 600; color: var(--primary-color); min-width: 180px;">
+                ${cita.nombre || 'No especificado'}<br>
+                <small style="color: #666; font-weight: 400; word-break: break-all;">${cita.correo || ''}</small>
+            </td>
+            <td style="padding: 15px; min-width: 130px;">
+                <span style="background: #eef2f7; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; color: var(--primary-color);">${cita.terapia}</span>
+            </td>
+            <td style="padding: 15px; font-size: 0.85rem; min-width: 150px;">
+                <i class="fa-solid fa-calendar-days" style="color: var(--primary-color); margin-right: 5px;"></i> ${cita.fecha}<br>
+                <span style="color: #666; font-weight: 500;"><i class="fa-solid fa-clock" style="color: var(--primary-color); margin-right: 5px;"></i> ${cita.hora}</span>
+            </td>
+            <td style="padding: 15px; font-size: 0.85rem; min-width: 140px;">
+                <i class="fa-solid fa-phone" style="color: var(--primary-color); margin-right: 5px;"></i> ${cita.telefono || '-'}
+            </td>
+            <td style="padding: 15px; font-size: 0.85rem; color: #555; min-width: 180px;">
+                <i class="fa-solid fa-comment-dots" style="color: #666; margin-right: 5px;"></i> ${cita.comentarios || 'Sin comentarios'}
+            </td>
+            <td style="padding: 15px; font-weight: 600; color: #0b4f6c; font-size: 0.85rem; min-width: 130px;">
+                <i class="fa-solid fa-credit-card" style="margin-right: 5px;"></i> ${cita.operacion || 'N/A'}
+            </td>
+            <td style="padding: 15px; min-width: 120px;">
+                <span style="background: ${estadoColor}; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">${cita.estado || 'Pendiente'}</span>
+            </td>
+            <td style="padding: 15px; text-align: center; display: flex; gap: 6px; justify-content: center; align-items: center; min-width: 140px;">
+                <button onclick="confirmarYAgendar(${index})" style="background: #28a745; color: white; border: none; padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;" title="Confirmar y Google Calendar"><i class="fa-solid fa-check"></i></button>
+                <button onclick="enviarWhatsAppRecordatorio(${index})" style="background: #25d366; color: white; border: none; padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;" title="Enviar WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                <button onclick="eliminarCita(${index})" style="background: #d9534f; color: white; border: none; padding: 8px 10px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;" title="Eliminar cita"><i class="fa-solid fa-trash-can"></i></button>
             </td>
         `;
         tablaBody.appendChild(fila);
@@ -87,7 +104,7 @@ function confirmarYAgendar(index) {
     const fechaHoraFin = `${fechaLimpia}T${horaFinFormateada}`;
 
     const titulo = encodeURIComponent(`Sesión de Terapia (${cita.terapia}) - ${cita.nombre}`);
-    const detalles = encodeURIComponent(`Cita psicológica con ${cita.nombre}.\nTeléfono: ${cita.telefono}\nCorreo: ${cita.correo}`);
+    const detalles = encodeURIComponent(`Cita psicológica con ${cita.nombre}.\nTeléfono: ${cita.telefono}\nCorreo: ${cita.correo}\nMotivo: ${cita.comentarios || 'Ninguno'}\nNro Operación: ${cita.operacion || 'N/A'}`);
     
     // 3. URL con el parámetro mágico para que genere el Meet automáticamente
     const urlCalendar = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&details=${detalles}&dates=${fechaHoraInicio}/${fechaHoraFin}&add=GoogleMeet`;
